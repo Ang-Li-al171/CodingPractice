@@ -10,29 +10,24 @@ public class P12 {
 		int i=0;
 		int sum = 0;
 		for (i=1;i<Integer.MAX_VALUE;i++){
-			HashSet<Integer> temp = dividers(i);
-			div.put(i, temp);
-			if (temp.size() > 500) break;
+			sum+=i;
+			int divs = dividers(sum);
+			if (divs > 500) break;
 		}
-		System.out.println(i);
+		System.out.println(sum);
 	}
 	
-	private static HashSet<Integer> dividers(int n){
-		HashSet<Integer> temp = new HashSet<Integer>();
-		int i=1;
-		for (i=2;i<n;i++){
+	private static int dividers(int n){ // assumes n >= 1
+		int count=1; // 1 is always a divider
+		int i=0;
+		for (i=2;i<=Math.sqrt(n);i++){
 			if (n%i == 0){
-				temp = div.get(n/i);
-				break;
+				if (i == Math.sqrt(n))
+					count+=1;
+				else
+					count+=2;
 			}
 		}
-		HashSet<Integer> temp2 = new HashSet<Integer>();
-		for(Integer j : temp){
-			temp2.add(i*j);
-		}
-		for (Integer j : temp2){
-			temp.add(j);
-		}
-		return temp;
+		return count;
 	}
 }
