@@ -9,10 +9,10 @@ public class P45 {
 		long T=2, P=3, H=4;
 		boolean firstTime=true;
 		while(true){
-			if (T< P && T<H){
+			if (T<= P && T<=H){
 				t++;
 				T=t*(t+1)/2;
-			} else if (P < T && P < H){
+			} else if (P <= T && P <= H){
 				p++;
 				P=p*(3*p-1)/2;
 			} else {
@@ -23,6 +23,8 @@ public class P45 {
 				if (!firstTime) break;
 				firstTime=false;
 			}
+//
+//			System.out.println(P);
 		}
 		
 		System.out.println(T);
