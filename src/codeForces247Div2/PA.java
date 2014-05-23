@@ -1,3 +1,4 @@
+package codeForces247Div2;
 import java.util.Scanner;
 
 
